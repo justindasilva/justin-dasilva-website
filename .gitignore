@@ -1,0 +1,43 @@
+
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+
+# Nuxt specific
+.nuxt-types/
+.nuxtrc
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS files
+Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+# VSCode
+.vscode/
