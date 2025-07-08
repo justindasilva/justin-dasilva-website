@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "koncepp-nuxt-layer": "^0.1.0",
-    "nuxt": "^4.0.0-rc.0"
+    "nuxt": "^4.0.0-rc.0",
+    "resend": "^4.6.0"
   }
 }

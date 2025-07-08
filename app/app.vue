@@ -1,15 +1,60 @@
 <script setup lang="ts">
-useHead({
-  titleTemplate: 'Justin Da Silva',
+import { ref } from 'vue'
+
+const showContactForm = ref(false)
+const isSubmitting = ref(false)
+const submitStatus = ref('')
+
+const formData = ref({
+  name: '',
+  email: '',
+  company: '',
+  message: ''
 })
 
 const sendEmail = () => {
-  const email = 'justindasilva@gmail.com'
-  const subject = 'Resume Inquiry'
-  const body = 'Hi Justin,\n\nI came across your resume and would like to discuss potential opportunities.\n\nBest regards,'
-  
-  const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-  window.location.href = mailtoLink
+  showContactForm.value = true
+}
+
+const closeContactForm = () => {
+  showContactForm.value = false
+  submitStatus.value = ''
+  formData.value = { name: '', email: '', company: '', message: '' }
+}
+
+const submitForm = async () => {
+  if (!formData.value.name || !formData.value.email || !formData.value.message) {
+    submitStatus.value = 'Please fill in all required fields.'
+    return
+  }
+
+  isSubmitting.value = true
+  submitStatus.value = ''
+
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData.value)
+    })
+
+    const result = await response.json()
+
+    if (result.success) {
+      submitStatus.value = 'Thank you! Your message has been sent successfully.'
+      setTimeout(() => {
+        closeContactForm()
+      }, 3000)
+    } else {
+      submitStatus.value = 'Sorry, there was an error sending your message. Please try again.'
+    }
+  } catch (error) {
+    submitStatus.value = 'Sorry, there was an error sending your message. Please try again.'
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>
 
@@ -21,10 +66,10 @@ const sendEmail = () => {
         <h1 class="name">Justin Da Silva</h1>
         <h2 class="title">Full-Stack Developer</h2>
         <div class="contact-info">
-          <div class="contact-item">
-            <span class="icon">📧</span>
-            <a href="#" @click.prevent="sendEmail" id="email-link">justindasilva[at]gmail[dot]com</a>
-          </div>
+            <div class="contact-item">
+              <span class="icon">📧</span>
+              <a href="#" @click.prevent="sendEmail" id="email-link">Contact Me</a>
+            </div>
           <div class="contact-item">
             <span class="icon">📄</span>
             <a href="/justin-dasilva-resume.pdf" target="_blank">Download PDF Resume</a>
@@ -32,6 +77,74 @@ const sendEmail = () => {
         </div>
       </div>
     </header>
+
+    <!-- Contact Form Modal -->
+    <div v-if="showContactForm" class="modal-overlay" @click="closeContactForm">
+      <div class="modal-content" @click.stop>
+        <div class="modal-header">
+          <h3>Contact Me</h3>
+          <button class="close-button" @click="closeContactForm">&times;</button>
+        </div>
+        
+        <form @submit.prevent="submitForm" class="contact-form">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input 
+              id="name"
+              v-model="formData.name" 
+              type="text" 
+              required 
+              placeholder="Your name"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input 
+              id="email"
+              v-model="formData.email" 
+              type="email" 
+              required 
+              placeholder="your.email@example.com"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input 
+              id="company"
+              v-model="formData.company" 
+              type="text" 
+              placeholder="Your company (optional)"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea 
+              id="message"
+              v-model="formData.message" 
+              required 
+              rows="4"
+              placeholder="Tell me about your opportunity..."
+            ></textarea>
+          </div>
+          
+          <div v-if="submitStatus" class="status-message" :class="{ 'success': submitStatus.includes('Thank you') }">
+            {{ submitStatus }}
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="cancel-button" @click="closeContactForm">
+              Cancel
+            </button>
+            <button type="submit" class="submit-button" :disabled="isSubmitting">
+              {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- Summary Section -->
     <section class="resume-section">
@@ -425,6 +538,178 @@ const sendEmail = () => {
   .resume-container {
     max-width: none;
     padding: 0;
+  }
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 0.5rem;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s;
+}
+
+.close-button:hover {
+  background-color: #f3f4f6;
+}
+
+.contact-form {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.status-message {
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.status-message.success {
+  background-color: #f0fdf4;
+  color: #16a34a;
+  border-color: #bbf7d0;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.cancel-button,
+.submit-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.cancel-button {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.cancel-button:hover {
+  background-color: #e5e7eb;
+}
+
+.submit-button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.submit-button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .cancel-button,
+  .submit-button {
+    width: 100%;
   }
 }
 </style>
