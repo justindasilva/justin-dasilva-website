@@ -44,7 +44,7 @@ export default defineEventHandler(async (event) => {
     
     try {
       await resend.emails.send({
-        from: 'justindasilva.com', // Use your verified email or domain
+        from: 'contact@justindasilva.com', // Use your verified email or domain
         to: 'justindasilva@gmail.com',
         subject: `New Contact from ${body.name}`,
         html: `

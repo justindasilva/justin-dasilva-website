@@ -65,13 +65,17 @@ const submitForm = async () => {
       <div class="header-content">
         <h1 class="name">Justin Da Silva</h1>
         <h2 class="title">Full-Stack Developer</h2>
-        <div class="contact-info">
-            <div class="contact-item">
-              <span class="icon">📧</span>
-              <a href="#" @click.prevent="sendEmail" id="email-link">Contact Me</a>
-            </div>
+                <div class="contact-info">
           <div class="contact-item">
-            <span class="icon">📄</span>
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <a href="#" @click.prevent="sendEmail" id="email-link">Contact Me</a>
+          </div>
+          <div class="contact-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+            </svg>
             <a href="/justin-dasilva-resume.pdf" target="_blank">Download PDF Resume</a>
           </div>
         </div>
@@ -349,7 +353,9 @@ const submitForm = async () => {
 }
 
 .icon {
-  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+  color: #6b7280;
 }
 
 .resume-section {
