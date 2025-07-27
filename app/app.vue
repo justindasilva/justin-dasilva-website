@@ -166,7 +166,7 @@ const submitForm = async () => {
     <section class="resume-section">
       <h3 class="section-title">Summary</h3>
       <p class="summary-text">
-        Results-oriented full-stack developer with 15+ years of experience delivering high-quality web applications using HTML5, CSS3, JavaScript, Vue, Node, and PHP. Proven ability to create innovative, user-friendly solutions. Seeking a challenging opportunity to leverage my skills and contribute to a dynamic team.
+        Results-driven full-stack developer with 15+ years of experience building scalable apps with Vue.js, Node.js, and PHP. Passionate about crafting maintainable, accessible software and improving team processes. Experienced mentor and collaborator, actively exploring cloud infrastructure with AWS and Terraform.
       </p>
     </section>
 
@@ -177,41 +177,46 @@ const submitForm = async () => {
         <div class="skill-category">
           <h4 class="skill-category-title">Front-End</h4>
           <div class="skill-tags">
-            <span class="skill-tag">HTML5</span>
-            <span class="skill-tag">CSS3</span>
-            <span class="skill-tag">JavaScript (ES6+)</span>
-            <span class="skill-tag">Vue</span>
+            <span class="skill-tag">Vue.js</span>
             <span class="skill-tag">Nuxt</span>
             <span class="skill-tag">React</span>
-            <span class="skill-tag">Next</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">JavaScript (ES6+)</span>
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
             <span class="skill-tag">Responsive Design</span>
-            <span class="skill-tag">UI/UX Principles</span>
+            <span class="skill-tag">UI/UX</span>
           </div>
         </div>
         <div class="skill-category">
           <h4 class="skill-category-title">Back-End</h4>
           <div class="skill-tags">
-            <span class="skill-tag">Node</span>
-            <span class="skill-tag">Express</span>
+            <span class="skill-tag">Node.js</span>
             <span class="skill-tag">PHP</span>
             <span class="skill-tag">MySQL</span>
             <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">RESTful API design</span>
           </div>
         </div>
         <div class="skill-category">
-          <h4 class="skill-category-title">DevOps</h4>
+          <h4 class="skill-category-title">DevOps & Tools</h4>
           <div class="skill-tags">
             <span class="skill-tag">Git</span>
             <span class="skill-tag">Docker</span>
-            <span class="skill-tag">CI/CD</span>
             <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">CI/CD</span>
           </div>
         </div>
         <div class="skill-category">
-          <h4 class="skill-category-title">Other</h4>
+          <h4 class="skill-category-title">Practices</h4>
           <div class="skill-tags">
             <span class="skill-tag">Agile</span>
+            <span class="skill-tag">Test-driven development</span>
+            <span class="skill-tag">Accessibility (WCAG)</span>
             <span class="skill-tag">OOP</span>
+            <span class="skill-tag">Mentoring</span>
+            <span class="skill-tag">Git Flow</span>
           </div>
         </div>
       </div>
@@ -223,61 +228,55 @@ const submitForm = async () => {
       <div class="experience-list">
         <div class="experience-item">
           <div class="job-header">
-            <h4 class="job-title">Senior Full-Stack Developer</h4>
-            <span class="job-period">May 2016 - April 2025</span>
+            <h4 class="company-name">Mercatus Technologies Inc</h4>  
+            <span class="job-period">May 2016 – April 2025</span>
           </div>
-          <h5 class="company-name">Mercatus Technologies Inc</h5>
           <ul class="achievements-list">
-            <li class="achievement-item">Spearheaded the development and maintenance of e-commerce web applications using Nuxt (Vue), Next (React), Node, and PHP for a team of 10 developers, consistently delivering high-quality solutions.</li>
-            <li class="achievement-item">Instrumental in implementing Web Content Accessibility Guidelines (WCAG), ensuring client applications met certification requirements.</li>
-            <li class="achievement-item">Developed "The Config Manager," a Nuxt application that allowed clients to customize their websites, including features, translation strings, and theme elements.</li>
-            <li class="achievement-item">Designed and implemented RESTful APIs, facilitating seamless data exchange between front-end and back-end systems and enhancing overall application functionality.</li>
-            <li class="achievement-item">Optimized application performance, achieving a 20% improvement in page load speed and significantly enhancing user experience.</li>
-            <li class="achievement-item">Progressed through increasingly senior roles, providing technical leadership and mentoring junior developers on key projects.</li>
-            <li class="achievement-item">Utilized Agile methodologies to streamline development processes, improve team efficiency, and ensure timely project delivery.</li>
-            <li class="achievement-item">Implemented and maintained Git Flow branching strategies, promoting efficient collaboration and ensuring smooth version control.</li>
+            <li class="achievement-item">Maintained and enhanced an Angular + Drupal 7 e-commerce platform (~5 years), then contributed to its migration to Next.js (React) + Drupal 10 (~4 years), collaborating with an 8‑developer team to modernize architecture and processes, ensuring all client sites were upgraded before Drupal 7 end‑of‑life.</li>
+            <li class="achievement-item">Initiated and developed “The Config Manager,” a Nuxt (Vue) app that empowered clients to customize site features, themes, and translations.</li>
+            <li class="achievement-item">Designed RESTful APIs connecting front-end and back-end systems.</li>
+            <li class="achievement-item">Championed WCAG compliance, ensuring certification.</li>
+            <li class="achievement-item">Improved page load times by 20%, boosting overall performance.</li>
+            <li class="achievement-item">Mentored juniors, led code reviews, and promoted Agile & Git Flow practices.</li>
+            <li class="achievement-item">Contributed to architectural discussions, sprint planning, and cross‑team efforts.</li>
           </ul>
         </div>
 
         <div class="experience-item">
           <div class="job-header">
-            <h4 class="job-title">Full-Stack Developer</h4>
-            <span class="job-period">November 2014 - October 2015</span>
+            <h4 class="company-name">Fuse Powered Inc.</h4>
+            <span class="job-period">November 2014 – October 2015</span>
           </div>
-          <h5 class="company-name">Fuse Powered Inc.</h5>
           <ul class="achievements-list">
-            <li class="achievement-item">Contributed to the development and maintenance of a high-traffic web application using PHP (Phalcon Framework), focusing on front-end (HTML, CSS, JavaScript) and back-end development, and version control (Git Flow).</li>
+            <li class="achievement-item">Developed and maintained a high-traffic PHP web app (Phalcon Framework), building front‑end and back‑end features and collaborating via Git Flow.</li>
           </ul>
         </div>
 
         <div class="experience-item">
           <div class="job-header">
-            <h4 class="job-title">Web Developer</h4>
-            <span class="job-period">March 2014 - November 2014</span>
+            <h4 class="company-name">Arlene Dickinson Enterprises</h4>
+            <span class="job-period">March 2014 – November 2014</span>
           </div>
-          <h5 class="company-name">Arlene Dickinson Enterprises</h5>
           <ul class="achievements-list">
-            <li class="achievement-item">Developed a mobile-first, responsive infographic feature using MODx (a PHP framework), jQuery, SASS, Twitter Bootstrap 3, and Mustache, resulting in a 25% increase in user engagement.</li>
+            <li class="achievement-item">Built a mobile‑first, responsive infographic feature using MODx (PHP), jQuery, SASS, Bootstrap 3, and Mustache, boosting user engagement by 25%.</li>
           </ul>
         </div>
 
         <div class="experience-item">
           <div class="job-header">
-            <h4 class="job-title">Web Developer</h4>
-            <span class="job-period">November 2008 - February 2014</span>
+            <h4 class="company-name">EldoLED</h4>
+            <span class="job-period">November 2008 – February 2014</span>
           </div>
-          <h5 class="company-name">EldoLED</h5>
           <ul class="achievements-list">
-            <li class="achievement-item">Involved in the development and maintenance of web applications using PHP, MySQL, JavaScript, XHTML, and CSS, with a focus on creating extensible and maintainable code, database design, and front-end interactivity using jQuery.</li>
+            <li class="achievement-item">Developed and maintained web applications with PHP, MySQL, JavaScript, XHTML, and CSS, focusing on clean architecture, database design, and front‑end interactivity using jQuery.</li>
           </ul>
         </div>
 
         <div class="experience-item">
           <div class="job-header">
-            <h4 class="job-title">Freelance Web/Mobile Developer</h4>
-            <span class="job-period">2005 - Present</span>
+            <h4 class="company-name">Self-Employed</h4>
+            <span class="job-period">2005 – Present</span>
           </div>
-          <h5 class="company-name">Self-Employed</h5>
           <ul class="achievements-list">
             <li class="achievement-item">Created and managed multiple websites and developed web and mobile applications for clients, including interactive Flash games and Android apps.</li>
           </ul>
@@ -291,14 +290,10 @@ const submitForm = async () => {
       <div class="education-list">
         <div class="education-item">
           <div class="education-header">
-            <h4 class="degree">Honours Bachelor of Science</h4>
-            <span class="education-period">2007 - 2011</span>
+            <h4 class="school">University of Toronto Scarborough</h4>
+            <span class="education-period">2007 – 2011</span>
           </div>
-          <h5 class="school">University of Toronto Scarborough</h5>
-          <ul class="education-details">
-            <li>Major Program: Computer Science</li>
-            <li>Minor Programs: Economics and Statistics</li>
-          </ul>
+          <p class="education-details">Honours B.Sc., Major: Computer Science; Minors: Economics & Statistics</p>
         </div>
       </div>
     </section>
@@ -391,7 +386,7 @@ const submitForm = async () => {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
 }
 
@@ -433,7 +428,7 @@ const submitForm = async () => {
   padding: 1rem;
   background: #f9fafb;
   border-radius: 0.5rem;
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid #e5e7eb;
 }
 
 .job-header {
@@ -443,13 +438,6 @@ const submitForm = async () => {
   margin-bottom: 0.5rem;
 }
 
-.job-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin: 0;
-}
-
 .job-period {
   font-size: 0.875rem;
   color: #6b7280;
@@ -457,10 +445,10 @@ const submitForm = async () => {
 }
 
 .company-name {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #3b82f6;
-  margin: 0 0 0.75rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
 }
 
 .achievements-list {
@@ -494,13 +482,6 @@ const submitForm = async () => {
   margin-bottom: 0.5rem;
 }
 
-.degree {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #1f2937;
-  margin: 0;
-}
-
 .education-period {
   font-size: 0.875rem;
   color: #6b7280;
@@ -508,15 +489,14 @@ const submitForm = async () => {
 }
 
 .school {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #3b82f6;
-  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
 }
 
 .education-details {
   margin: 0;
-  padding-left: 1.25rem;
   font-size: 0.875rem;
   color: #4b5563;
 }
